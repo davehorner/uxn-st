@@ -8,8 +8,6 @@ Sources:
 
 ## How to use
 
-All the files in the `wav` directory match the paths in `uxn` and are there to help you choose the samples you like.
-
 The files in `uxn` are split into two directories:
 
 * the `11025` files are sampled at 11.025 kHz and should be played in Uxn at two octaves below middle C for their natural pitch, in other words, by writing `#24` to `pitch` instead of `#3c`; and
@@ -17,6 +15,15 @@ The files in `uxn` are split into two directories:
 * the `22050` files are samples at 22.050 kHz and should be played only one octave below middle C for their natural pitch, by writing `#30` to `pitch` instead of `#3c`.
 
 The samples in `22050` usually sound crisper than the ones in `11025`, but they take up twice the space for the same amount of time. Samples that were over 8 KiB large before conversion have been excluded from this repository as too few of them would fit in the 64 KiB of Uxn memory to be that useful. If you'd like samples longer than that, edit `convert.sh` and comment out the indicated line.
+
+## Previewing samples
+
+You can play these samples outside Uxn with `aplay` or similar:
+
+```
+aplay -f U8 -r 11025 uxn/11025/st-b5/*
+aplay -f U8 -r 22050 uxn/22050/st-b5/*
+```
 
 ## Converting samples yourself
 

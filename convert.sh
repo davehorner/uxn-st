@@ -18,11 +18,11 @@ find orig -type f -size +8192c -delete
 
 find orig -type f -name '* *' -exec sh -c 'mv -v "{}" $(echo "{}" | sed "s/ /_/g") 2>/dev/null' \;
 
-rm -rf wav uxn
+rm -rf uxn
 for IN_DIR in orig/*; do
     echo "${IN_DIR}"
     OUT_DIR="$(basename "${IN_DIR}" | tr 'A-Z' 'a-z')"
-    mkdir -p {wav,uxn}/{11025,22050}/"${OUT_DIR}"
+    mkdir -p uxn/{11025,22050}/"${OUT_DIR}"
     find "${IN_DIR}" -type f | while read f; do
         SAMPLE_RATE=
         if grep -q FORM "$f"; then
@@ -41,12 +41,11 @@ for IN_DIR in orig/*; do
             OUT_FILE="${SAMPLE_RATE}/${OUT_DIR}/$(basename "$f")"
             sox out.wav -c 1 -b 8 -e unsigned-integer -r "${SAMPLE_RATE}" out.raw gain -4
             if [ "$(wc -c out.raw | cut -d ' ' -f 1)" -gt 256 ]; then
-                mv out.wav "wav/${OUT_FILE}.wav"
                 mv out.raw "uxn/${OUT_FILE}.pcm"
             fi
         fi
     done
 done
 
-du -hs orig uxn wav
+du -hs orig uxn
 
