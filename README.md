@@ -1,31 +1,58 @@
-# Uxn-compatible sound samples
+# 🎧 uxn-st — Dirt Branch
 
-Sources:
+This branch (`dirt`) contains **WAV-converted** versions of the raw sound files from the main branch.  
+It’s meant for easy use with **[SuperDirt](https://github.com/musikinformatik/SuperDirt)** in **[TidalCycles](https://tidalcycles.org/)**.
 
-* all the `st-XX.lha` files from http://aminet.net/mods/inst/ for the samples themselves, and
+The files are about 264MB on disk.
 
-* [st-xx-lha-convert](https://git.sr.ht/~ft/snippets/tree/master/item/st-xx-lha-convert) from [~ft/snippets](https://git.sr.ht/~ft/snippets) to convert the Amiga files properly.
+---
 
-## How to use
+## 🔽 Download or Clone
 
-The files in `uxn` are split into two directories:
+If you only want the converted WAV files (and not the entire repo history), use:
 
-* the `11025` files are sampled at 11.025 kHz and should be played in Uxn at two octaves below middle C for their natural pitch, in other words, by writing `#24` to `pitch` instead of `#3c`; and
-
-* the `22050` files are samples at 22.050 kHz and should be played only one octave below middle C for their natural pitch, by writing `#30` to `pitch` instead of `#3c`.
-
-The samples in `22050` usually sound crisper than the ones in `11025`, but they take up twice the space for the same amount of time. Samples that were over 8 KiB large before conversion have been excluded from this repository as too few of them would fit in the 64 KiB of Uxn memory to be that useful. If you'd like samples longer than that, edit `convert.sh` and comment out the indicated line.
-
-## Previewing samples
-
-You can play these samples outside Uxn with `aplay` or similar:
-
-```
-aplay -f U8 -r 11025 uxn/11025/st-b5/*
-aplay -f U8 -r 22050 uxn/22050/st-b5/*
+```bash
+# clone just the dirt branch
+git clone --branch dirt --single-branch --depth 1 https://github.com/davehorner/uxn-st.git
+cd uxn-st
 ```
 
-## Converting samples yourself
+Or simply **download the ZIP**:
 
-The `convert.sh` does all the work here, and requires Bash and SoX to be installed to work. If you have already downloaded the `st-XX.lha` files, copy them into the same directory as `convert.sh` to avoid downloading all the archives again.
+👉 [Download WAVs (dirt branch)](https://github.com/davehorner/uxn-st/archive/refs/heads/dirt.zip)
 
+---
+
+## 🧩 Install into SuperDirt
+
+1. Find your SuperDirt samples directory:
+
+   - **macOS/Linux:** `~/SuperCollider/superdirt/samples/`
+   - **Windows:** `C:\Users\<you>\AppData\Local\SuperCollider\superdirt\samples\`
+
+2. Copy or symlink this folder there:
+
+   ```bash
+   # Example (Linux/macOS)
+   ln -s /path/to/uxn-st ~/SuperCollider/superdirt/samples/uxn-st
+   ```
+
+3. Restart SuperDirt in SuperCollider:
+
+   ```supercollider
+   SuperDirt.start
+   ```
+
+4. Test in TidalCycles:
+
+   ```haskell
+   d1 $ sound "uxn-st:1"
+   ```
+
+---
+
+## ℹ️ About
+
+**uxn-st** is a collection of sound textures inspired by the [Uxn](https://wiki.xxiivv.com/site/uxn.html) ecosystem.  
+The `dirt` branch exists so you can plug these samples straight into SuperDirt without converting formats yourself.
+If you want the uxn ready to embed files, check the main branch.
