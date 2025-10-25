@@ -1,3 +1,16 @@
+
+## 🎧 WAV Versions (Dirt Branch)
+
+Looking for ready-to-use WAV files for **SuperDirt / TidalCycles**?
+
+The [`dirt` branch](https://github.com/davehorner/uxn-st/tree/dirt) contains pre-converted WAVs from this project.
+
+Get them quickly:
+
+```bash
+git clone --branch dirt --single-branch --depth 1 https://github.com/davehorner/uxn-st.git
+```
+
 # Uxn-compatible sound samples
 
 Sources:
