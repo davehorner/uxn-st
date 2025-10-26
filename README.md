@@ -1,3 +1,17 @@
+## tidalcycles-rs
+
+[tidalcycles-rs](https://crates.io/crates/tidalcycles-rs) makes it very easy to audition these sounds.
+
+```
+cargo install tidalcycles-rs
+tidalcycles-rs
+tcrs_dirt_dl install
+tidalcycles-rs --spawn -f
+tcrs_dirt_sample_iter
+```
+
+This will install a live coding environment, install these sounds, run the sever, and play all the dirt banks.
+
 # 🎧 uxn-st — Dirt Branch
 
 This branch (`dirt`) contains **WAV-converted** versions of the raw sound files from the main branch.  
