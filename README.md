@@ -1,4 +1,19 @@
 
+## tidalcycles-rs
+
+[tidalcycles-rs](https://crates.io/crates/tidalcycles-rs) makes it very easy to audition these sounds.
+
+```
+cargo install tidalcycles-rs
+tidalcycles-rs
+tcrs_dirt_dl install
+tidalcycles-rs --spawn -f
+tcrs_dirt_sample_iter
+```
+
+This will install a live coding environment, install these sounds, run the server, and play all the dirt banks.
+
+
 ## 🎧 WAV Versions (Dirt Branch)
 
 Looking for ready-to-use WAV files for **SuperDirt / TidalCycles**?
